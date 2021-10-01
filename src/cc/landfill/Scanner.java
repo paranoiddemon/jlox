@@ -71,26 +71,36 @@ public class Scanner {
         switch (c) {
             case '(':
                 addToken(LEFT_PAREN);
+                break;
             case ')':
                 addToken(RIGHT_PAREN);
+                break;
             case '{':
                 addToken(LEFT_BRACE);
+                break;
             case '}':
                 addToken(RIGHT_BRACE);
+                break;
             case ',':
                 addToken(COMMA);
+                break;
             case '.':
                 addToken(DOT);
+                break;
             case '-':
                 addToken(MINUS);
+                break;
             case '+':
                 addToken(PLUS);
+                break;
             case ';':
                 addToken(SEMICOLON);
+                break;
             case '*':
                 addToken(STAR);
+                break;
 
-                //two stage lexemes
+            //two stage lexemes
             case '!':
                 addToken(match('=') ? BANG_EQUAL : BANG);
                 break;
@@ -101,8 +111,9 @@ public class Scanner {
                 addToken(match('=') ? GREATER_EQUAL : GREATER);
                 break;
             case '<':
-
-                //longer lexeme
+                addToken(match('=') ? LESS_EQUAL : LESS);
+                break;
+            //longer lexeme
             case '/':
                 if (match('/')) {
                     // skip the comment line, use peek instead of match to update line
@@ -145,7 +156,7 @@ public class Scanner {
     private void identifier() {
         while (isAlphaNumeric(peek())) advance();
         // text vs literal
-        String text = source.substring(start,current);
+        String text = source.substring(start, current);
         TokenType type = keywords.get(text);
         if (type == null) type = IDENTIFIER;
         addToken(type);
