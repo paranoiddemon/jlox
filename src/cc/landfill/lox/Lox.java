@@ -1,4 +1,4 @@
-package cc.landfill;
+package cc.landfill.lox;
 
 import java.io.BufferedReader;
 import java.io.IOException;

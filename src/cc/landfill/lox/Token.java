@@ -1,4 +1,4 @@
-package cc.landfill;
+package cc.landfill.lox;
 
 public class Token {
 

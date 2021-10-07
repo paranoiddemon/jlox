@@ -1,12 +1,11 @@
-package cc.landfill;
+package cc.landfill.lox;
 
-import javax.xml.soap.Text;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static cc.landfill.TokenType.*;
+import static cc.landfill.lox.TokenType.*;
 
 // from source to tokens
 public class Scanner {
